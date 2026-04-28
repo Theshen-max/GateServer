@@ -8,33 +8,33 @@
 
 bool LoginSystem::handleGet(const std::string& path, std::shared_ptr<HttpConnection> connection)
 {
-	if (!_get_handlers.contains(path))
+	if (!_getHandlers.contains(path))
 	{
 		// 没有注册对应的处理函数
 		return false;
 	}
-	_get_handlers[path](connection);
+	_getHandlers[path](connection);
 	return true;
 }
 
 bool LoginSystem::handlePost(const std::string& path, std::shared_ptr<HttpConnection> connection)
 {
-	if (!_post_handlers.contains(path))
+	if (!_postHandlers.contains(path))
 	{
 		return false;
 	}
-	_post_handlers[path](connection);
+	_postHandlers[path](connection);
 	return true;
 }
 
 void LoginSystem::regGet(const std::string& url, const HttpHandler& handler)
 {
-	_get_handlers.emplace(url, handler);
+	_getHandlers.emplace(url, handler);
 }
 
 void LoginSystem::regPost(const std::string& url, const HttpHandler& handler)
 {
-	_post_handlers.emplace(url, handler);
+	_postHandlers.emplace(url, handler);
 }
 
 LoginSystem::LoginSystem()

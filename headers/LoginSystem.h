@@ -23,8 +23,8 @@ public:
 private:
 	LoginSystem();
 	// get请求的处理函数集合, 不同url，调用不同处理函数（参数是该请求的HttpConnection）
-	std::map<std::string, HttpHandler> _get_handlers;
+	std::map<std::string, HttpHandler> _getHandlers;
 	// post请求的处理函数集合, 不同url，调用不同处理函数（参数是该请求的HttpConnection）
-	std::map<std::string, HttpHandler> _post_handlers;
+	std::map<std::string, HttpHandler> _postHandlers;
 };
 #endif //LOGINSYSTEM_H
